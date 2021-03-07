@@ -1,0 +1,73 @@
+.hero {
+  width: 100%;
+  height: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .inner-hero {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    // flex-direction: column;
+
+    &:first-child {
+      justify-content: flex-end;
+      align-items: center;
+
+      .hero-heading {
+        padding-right: 8rem;
+      }
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+
+    .active {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .button-container {
+    border: 1px solid white;
+    border-bottom: none;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    .slider-button {
+      border: none;
+      padding: 2rem;
+      transition: 0.2s;
+
+      &:first-child {
+        background: white;
+        color: var(--color-black);
+
+        &:hover {
+          color: white;
+        }
+      }
+
+      &:last-child {
+        background: orange;
+        color: white;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: darkorange;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
