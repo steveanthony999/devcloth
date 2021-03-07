@@ -87,7 +87,7 @@ export const HeroSlider = () => {
               paginate(-1);
             }
           }}
-          className='slider-wrapper'
+          className='slider-wrapper util-border-bottom'
         >
           <motion.div variants={variants} className='inner-slider'>
             <div className='hero-heading'>
