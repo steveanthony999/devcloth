@@ -58,3 +58,43 @@
     }
   }
 }
+
+// ========================= MOBILE =========================
+// ========================= MOBILE =========================
+// ========================= MOBILE =========================
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+  .slider-wrapper {
+    flex-direction: column;
+    top: 5rem;
+    height: 75vh;
+
+    .inner-slider {
+      width: 100%;
+      height: 100%;
+
+      &:first-child {
+        margin-bottom: 2rem;
+        justify-content: center;
+
+        .hero-heading {
+          width: 60%;
+          padding-right: 0;
+          text-align: center;
+
+          h1 {
+            font-size: 1.75rem;
+          }
+        }
+      }
+
+      &:last-child {
+        // margin-top: -4rem;
+        height: 120%;
+      }
+    }
+  }
+
+  .button-container {
+    display: none;
+  }
+}
