@@ -1,5 +1,11 @@
 :root {
   --color-black: #333;
+  --color-grey: #777;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
 }
 
 .util-button-light {
@@ -22,9 +28,14 @@
   }
 }
 
+.util-extra-small-heading {
+  font-size: 0.8rem;
+  color: var(--color-grey);
+}
+
 .util-small-heading {
   font-size: 1.2rem;
-  color: #777;
+  color: var(--color-grey);
 }
 
 .util-large-heading {
@@ -32,4 +43,33 @@
   font-weight: 400;
   letter-spacing: 4px;
   color: var(--color-black);
+}
+
+.util-container {
+  width: 1200px;
+}
+
+.util-flex-center-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.util-py-1 {
+  padding: 0.75rem 0;
+}
+
+.util-py-4 {
+  padding: 1rem 0;
+}
+
+.util-mr-2 {
+  margin-right: 1.2rem;
+}
+
+.util-ml-2 {
+  margin-left: 1.2rem;
+}
+
+.util-border-bottom {
+  border-bottom: 1px solid #ddd;
 }
