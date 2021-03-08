@@ -1,5 +1,5 @@
-// import Hero from '../../components/hero/Hero';
 import HeroSlider from '../../components/hero/HeroSlider';
+import MainSection from '../../components/catalogue/mainsection/MainSection';
 
 import './home.scss';
 
@@ -8,16 +8,9 @@ const Home = () => {
     <div className='homepage'>
       {/* SECTION: HERO SLIDER */}
       <HeroSlider />
-      {/* SECTION: MAIN GRID */}
-      {/* ACTIVE WEAR */}
+      {/* SECTION: MAIN SECTION */}
       <div className='section'>
-        <h1>Active Wear</h1>
-        {/* TEES */}
-        <h1>Tees</h1>
-        {/* HOODIES */}
-        <h1>Hoodies</h1>
-        {/* ACCESSORIES */}
-        <h1>Accessories</h1>
+        <MainSection />
         {/* SECTON: RECENT PRODUCTS */}
         <h1>Recent Products</h1>
         {/* SECTION: SALE */}
