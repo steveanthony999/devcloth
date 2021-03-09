@@ -15,6 +15,7 @@
       .hero-heading {
         width: 500px;
         padding-right: 6rem;
+        margin-right: 6rem;
       }
     }
   }
@@ -59,10 +60,7 @@
   }
 }
 
-// ========================= MOBILE =========================
-// ========================= MOBILE =========================
-// ========================= MOBILE =========================
-@media screen and (max-device-width: 480px) and (orientation: portrait) {
+@media screen and (max-width: 780px) and (orientation: portrait) {
   .slider-wrapper {
     flex-direction: column;
     top: 5rem;
@@ -70,7 +68,7 @@
 
     .inner-slider {
       width: 100%;
-      height: 100%;
+      height: 70%;
 
       &:first-child {
         margin-bottom: 2rem;
@@ -79,6 +77,7 @@
         .hero-heading {
           width: 60%;
           padding-right: 0;
+          margin-right: 0;
           text-align: center;
 
           h1 {
@@ -88,7 +87,6 @@
       }
 
       &:last-child {
-        // margin-top: -4rem;
         height: 120%;
       }
     }
@@ -96,5 +94,18 @@
 
   .button-container {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1064px) {
+  .slider-wrapper {
+    .inner-slider {
+      &:first-child {
+        .hero-heading {
+          padding-right: 0;
+          margin-right: 0;
+        }
+      }
+    }
   }
 }

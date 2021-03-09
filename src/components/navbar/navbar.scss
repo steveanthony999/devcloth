@@ -25,10 +25,7 @@
   display: none;
 }
 
-// ========================= MOBILE =========================
-// ========================= MOBILE =========================
-// ========================= MOBILE =========================
-@media screen and (max-device-width: 480px) and (orientation: portrait) {
+@media screen and (max-width: 780px) and (orientation: portrait) {
   .main-nav {
     display: none;
   }

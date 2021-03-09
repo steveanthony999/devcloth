@@ -9,7 +9,7 @@ const Home = () => {
       {/* SECTION: HERO SLIDER */}
       <HeroSlider />
       {/* SECTION: MAIN SECTION */}
-      <div className='section'>
+      <div className='section util-container'>
         <MainSection />
         {/* SECTON: RECENT PRODUCTS */}
         <h1>Recent Products</h1>

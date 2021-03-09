@@ -9,6 +9,7 @@ const Card = ({ title, image }) => {
       >
         <div className='overlay'></div>
       </div>
+      <div className='card-title util-small-heading'>{title}</div>
     </div>
   );
 };

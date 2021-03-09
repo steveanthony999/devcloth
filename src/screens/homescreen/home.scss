@@ -12,3 +12,9 @@
   position: absolute;
   top: 1160px;
 }
+
+@media screen and (max-width: 780px) and (orientation: portrait) {
+  .section {
+    top: 90vh;
+  }
+}
