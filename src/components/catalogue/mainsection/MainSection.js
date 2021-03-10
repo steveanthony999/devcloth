@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Card from './Card';
 import './mainSection.scss';
 
@@ -7,12 +9,38 @@ import imageHoodies from '../../../images/hoodies.jpeg';
 import imageAccessories from '../../../images/accessories.jpeg';
 
 const MainSection = () => {
+  const [sections, setSections] = useState([
+    {
+      id: 1,
+      title: 'Active Wear',
+      imageUrl: imageActiveWear,
+      linkUrl: 'activewear',
+    },
+    {
+      id: 2,
+      title: 'Tees',
+      imageUrl: imageTees,
+      linkUrl: 'tees',
+    },
+    {
+      id: 3,
+      title: 'Hoodies',
+      imageUrl: imageHoodies,
+      linkUrl: 'hoddies',
+    },
+    {
+      id: 4,
+      title: 'Accessories',
+      imageUrl: imageAccessories,
+      linkUrl: 'accessories',
+    },
+  ]);
+
   return (
     <section id='main-section'>
-      <Card title='Active Wear' image={imageActiveWear} />
-      <Card title='Tees' image={imageTees} />
-      <Card title='Hoodies' image={imageHoodies} />
-      <Card title='Accessories' image={imageAccessories} />
+      {sections.map(({ id, ...rest }) => (
+        <Card key={id} {...rest} />
+      ))}
     </section>
   );
 };
