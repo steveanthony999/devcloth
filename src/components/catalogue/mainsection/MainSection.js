@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import Card from './Card';
 import './mainSection.scss';
 
@@ -9,7 +7,7 @@ import imageHoodies from '../../../images/hoodies.jpeg';
 import imageAccessories from '../../../images/accessories.jpeg';
 
 const MainSection = () => {
-  const [sections, setSections] = useState([
+  const sections = [
     {
       id: 1,
       title: 'Active Wear',
@@ -34,7 +32,7 @@ const MainSection = () => {
       imageUrl: imageAccessories,
       linkUrl: 'accessories',
     },
-  ]);
+  ];
 
   return (
     <section id='main-section'>
