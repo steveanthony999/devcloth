@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -15,14 +16,17 @@ const sliderData = [
   {
     title: 'JS Streetwear Collection',
     image: image1,
+    linkUrl: 'jsstreetwear',
   },
   {
     title: 'DevActive Collection',
     image: image2,
+    linkUrl: 'devactive',
   },
   {
     title: 'X Collection',
     image: image3,
+    linkUrl: 'xcollection',
   },
 ];
 
@@ -52,7 +56,7 @@ const swipePower = (offset, velocity) => {
   return Math.abs(offset) * velocity;
 };
 
-export const HeroSlider = () => {
+export const HeroSlider = ({ history, match }) => {
   const [[page, direction], setPage] = useState([0, 0]);
 
   const imageIndex = wrap(0, sliderData.length, page);
@@ -95,7 +99,14 @@ export const HeroSlider = () => {
               <h1 className='util-large-heading'>
                 {sliderData[imageIndex].title}
               </h1>
-              <button className='util-button-light'>Shop Now</button>
+              <button
+                className='util-button-light'
+                onClick={() =>
+                  history.push(`${match.url}${sliderData[imageIndex].linkUrl}`)
+                }
+              >
+                Shop Now
+              </button>
             </div>
           </motion.div>
           <div
@@ -118,4 +129,4 @@ export const HeroSlider = () => {
   );
 };
 
-export default HeroSlider;
+export default withRouter(HeroSlider);
