@@ -6,19 +6,19 @@ const SHOP_DATA = [
     items: [
       {
         id: 1,
-        name: 'Brown Brim',
+        name: "Men's Athletic Long Shorts",
         imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
         price: 25,
       },
       {
         id: 2,
-        name: 'Blue Beanie',
+        name: "Women's Yoga Leggings",
         imageUrl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
         price: 18,
       },
       {
         id: 3,
-        name: 'Brown Cowboy',
+        name: 'Unisex Joggers',
         imageUrl: 'https://i.ibb.co/QdJwgmp/brown-cowboy.png',
         price: 35,
       },
@@ -67,19 +67,19 @@ const SHOP_DATA = [
     items: [
       {
         id: 1,
-        name: 'Adidas NMD',
+        name: 'Ringer Tee',
         imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
         price: 220,
       },
       {
         id: 2,
-        name: 'Adidas Yeezy',
+        name: "Women's Crop Tee",
         imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
         price: 280,
       },
       {
         id: 3,
-        name: 'Black Converse',
+        name: 'Toddler Short Sleeve Tee',
         imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
         price: 110,
       },
