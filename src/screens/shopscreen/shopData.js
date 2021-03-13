@@ -1,3 +1,16 @@
+import bios_hoodie_1 from '../../images/bios_hoodie_1.jpg';
+import bios_sweatshirt_1 from '../../images/bios_sweatshirt_1.jpg';
+import bios_zipup_1 from '../../images/bios_zipup_1.jpg';
+import javascript_cap_1 from '../../images/javascript_cap_1.jpg';
+import javascript_joggers_1 from '../../images/javascript_joggers_1.jpg';
+import js_backpack_1 from '../../images/js_backpack_1.jpg';
+import js_beanie_1 from '../../images/js_beanie_1.jpg';
+import js_crop_tee_1 from '../../images/js_crop_tee_1.jpg';
+import js_leggings_1 from '../../images/js_leggings_1.jpg';
+import js_shorts_1 from '../../images/js_shorts_1.jpg';
+import js_tee_1 from '../../images/js_tee_1.jpg';
+import js_toddler_tee_1 from '../../images/js_toddler_tee_1.jpg';
+
 const SHOP_DATA = [
   {
     id: 1,
@@ -7,20 +20,20 @@ const SHOP_DATA = [
       {
         id: 1,
         name: "Men's Athletic Long Shorts",
-        imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
-        price: 25,
+        imageUrl: js_shorts_1,
+        price: 26.95,
       },
       {
         id: 2,
         name: "Women's Yoga Leggings",
-        imageUrl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
-        price: 18,
+        imageUrl: js_leggings_1,
+        price: 29.95,
       },
       {
         id: 3,
         name: 'Unisex Joggers',
-        imageUrl: 'https://i.ibb.co/QdJwgmp/brown-cowboy.png',
-        price: 35,
+        imageUrl: javascript_joggers_1,
+        price: 22.95,
       },
       {
         id: 4,
@@ -68,20 +81,20 @@ const SHOP_DATA = [
       {
         id: 1,
         name: 'Ringer Tee',
-        imageUrl: 'https://i.ibb.co/0s3pdnc/adidas-nmd.png',
-        price: 220,
+        imageUrl: js_tee_1,
+        price: 15.95,
       },
       {
         id: 2,
         name: "Women's Crop Tee",
-        imageUrl: 'https://i.ibb.co/dJbG1cT/yeezy.png',
-        price: 280,
+        imageUrl: js_crop_tee_1,
+        price: 21.95,
       },
       {
         id: 3,
         name: 'Toddler Short Sleeve Tee',
-        imageUrl: 'https://i.ibb.co/bPmVXyP/black-converse.png',
-        price: 110,
+        imageUrl: js_toddler_tee_1,
+        price: 12.95,
       },
       {
         id: 4,
@@ -123,20 +136,20 @@ const SHOP_DATA = [
       {
         id: 1,
         name: 'Bios Hoodie',
-        imageUrl: 'https://i.ibb.co/XzcwL5s/black-shearling.png',
-        price: 125,
+        imageUrl: bios_hoodie_1,
+        price: 39.95,
       },
       {
         id: 2,
         name: 'Bios Unisex Sweatshirt',
-        imageUrl: 'https://i.ibb.co/mJS6vz0/blue-jean-jacket.png',
-        price: 90,
+        imageUrl: bios_sweatshirt_1,
+        price: 35.95,
       },
       {
         id: 3,
         name: 'Hoodie Sweater',
-        imageUrl: 'https://i.ibb.co/N71k1ML/grey-jean-jacket.png',
-        price: 90,
+        imageUrl: bios_zipup_1,
+        price: 34.95,
       },
       {
         id: 4,
@@ -160,20 +173,20 @@ const SHOP_DATA = [
       {
         id: 1,
         name: 'Beanie',
-        imageUrl: 'https://i.ibb.co/7CQVJNm/blue-tank.png',
-        price: 25,
+        imageUrl: js_beanie_1,
+        price: 17.95,
       },
       {
         id: 2,
         name: 'Hat',
-        imageUrl: 'https://i.ibb.co/4W2DGKm/floral-blouse.png',
-        price: 20,
+        imageUrl: javascript_cap_1,
+        price: 13.95,
       },
       {
         id: 3,
         name: 'Backpack',
-        imageUrl: 'https://i.ibb.co/KV18Ysr/floral-skirt.png',
-        price: 80,
+        imageUrl: js_backpack_1,
+        price: 34.95,
       },
       {
         id: 4,

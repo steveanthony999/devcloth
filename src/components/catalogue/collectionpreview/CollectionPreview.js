@@ -1,14 +1,15 @@
+import CollectionItem from '../collectionItem/CollectionItem';
 import './collectionPreview.scss';
 
 const CollectionPreview = ({ title, items }) => {
   return (
-    <div>
-      <h1>{title.toUpperCase()}</h1>
-      <div>
+    <div className='collection-preview-container'>
+      <h1 className='util-medium-heading'>{title}</h1>
+      <div className='inner'>
         {items
           .filter((item, index) => index < 3)
-          .map((item) => (
-            <div key={item.id}>{item.name}</div>
+          .map(({ id, ...rest }) => (
+            <CollectionItem key={id} {...rest} />
           ))}
       </div>
     </div>
