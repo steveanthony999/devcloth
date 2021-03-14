@@ -41,7 +41,9 @@ const Navbar = () => {
               </NavLink>
             </div>
             <div className='bottom-nav'>
-              <FontAwesomeIcon className='util-ml-2' icon={faUserAlt} />
+              <NavLink to='/login' className='util-ml-2'>
+                <FontAwesomeIcon icon={faUserAlt} />
+              </NavLink>
               <FontAwesomeIcon className='util-ml-2' icon={faHeart} />
               <FontAwesomeIcon className='util-ml-2' icon={faShoppingBag} />
             </div>

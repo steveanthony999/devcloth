@@ -6,6 +6,8 @@ import Home from './screens/homescreen/Home';
 import Shop from './screens/shopscreen/Shop';
 
 import './App.scss';
+import Login from './screens/authscreen/Login';
+import Register from './screens/authscreen/Register';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/shop' component={Shop} />
+        <Route path='/login' component={Login} />
+        <Route path='/register' component={Register} />
       </Switch>
     </BrowserRouter>
   );

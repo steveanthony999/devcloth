@@ -1,0 +1,119 @@
+#auth-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .util-container {
+    width: 600px;
+
+    .auth-header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        font-weight: 400;
+        letter-spacing: 1.2px;
+      }
+
+      .space {
+        margin: 0 1rem;
+      }
+
+      .space:after {
+        content: '▫';
+      }
+
+      .inactive {
+        color: #aaa;
+      }
+    }
+
+    .form-container {
+      form {
+        display: flex;
+        flex-direction: column;
+
+        .login-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          button {
+            width: 50%;
+            display: inline-block;
+          }
+
+          a {
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+
+        label {
+          font-size: 0.8rem;
+          margin-bottom: 1rem;
+          color: #333;
+        }
+
+        input {
+          font-size: 1.5rem;
+          padding: 0.5rem 1rem;
+          color: #333;
+          border: 1px solid #aaa;
+
+          &:focus {
+            outline: 1px solid black;
+          }
+        }
+
+        button {
+          font-size: 1.5rem;
+          border: none;
+          padding: 0.75rem 0;
+          background: black;
+          color: white;
+          transition: 0.2s;
+
+          &:focus {
+            outline: none;
+            background: orange;
+            color: black;
+          }
+
+          &:hover {
+            cursor: pointer;
+            background: orange;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 780px) and (orientation: portrait) {
+  #auth-section {
+    .util-container {
+      padding: 0 1rem;
+
+      .form-container {
+        form {
+          .login-wrapper {
+            flex-direction: column;
+            justify-content: center;
+
+            button {
+              width: 100%;
+              display: block;
+              margin-bottom: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
