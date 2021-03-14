@@ -221,21 +221,21 @@ const SHOP_DATA = [
     items: [
       {
         id: 1,
-        name: 'Camo Down Vest',
+        name: 'JS Streetwear Collection',
         imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
-        price: 325,
+        price: '',
       },
       {
         id: 2,
-        name: 'Floral T-shirt',
+        name: 'DevActive Collection',
         imageUrl: 'https://i.ibb.co/qMQ75QZ/floral-shirt.png',
-        price: 20,
+        price: '',
       },
       {
         id: 3,
-        name: 'Black & White Longsleeve',
+        name: 'X Collection',
         imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
-        price: 25,
+        price: '',
       },
       {
         id: 4,
