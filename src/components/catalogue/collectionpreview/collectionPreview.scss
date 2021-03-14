@@ -4,3 +4,14 @@
     justify-content: space-between;
   }
 }
+
+@media screen and (max-width: 780px) and (orientation: portrait) {
+  .collection-preview-container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .inner {
+      flex-wrap: wrap;
+    }
+  }
+}

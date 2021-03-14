@@ -18,3 +18,10 @@
     justify-content: space-between;
   }
 }
+
+@media screen and (max-width: 780px) and (orientation: portrait) {
+  .collection-item {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}

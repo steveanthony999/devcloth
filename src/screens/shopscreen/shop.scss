@@ -7,3 +7,11 @@
     width: 1200px;
   }
 }
+
+@media screen and (max-width: 780px) and (orientation: portrait) {
+  #shop {
+    .shop-container {
+      padding: 1rem;
+    }
+  }
+}
