@@ -22,6 +22,9 @@
   .lower-nav {
     .util-container {
       .bottom-nav {
+        display: flex;
+        align-items: center;
+
         .nav-icon {
           position: relative;
           &:hover {
@@ -42,6 +45,11 @@
               .sub-menu-item {
                 padding: 1rem;
                 border-bottom: 1px solid #ccc;
+                transition: 0.2s;
+
+                &:hover {
+                  background-color: #eee;
+                }
 
                 &:last-child {
                   border-bottom: none;

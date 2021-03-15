@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -7,12 +8,13 @@ import {
   faShoppingBag,
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
+
 import { auth } from '../../firebase/firebase';
 
-import './navbar.scss';
 import Logo from '../../images/logo.png';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+
+import './navbar.scss';
 
 const Navbar = ({ currentUser }) => {
   const [isHover, setIsHover] = useState(false);
@@ -24,18 +26,21 @@ const Navbar = ({ currentUser }) => {
   const subMenuAnimate = {
     enter: {
       opacity: 1,
-      rotateX: 0,
+      originY: 0,
+      scaleY: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
+        ease: 'easeOut',
       },
       display: 'block',
     },
     exit: {
       opacity: 0,
-      rotateX: -15,
+      originY: 0,
+      scaleY: 0,
       transition: {
-        duration: 0.5,
         delay: 0.3,
+        duration: 0.4,
       },
       transitionEnd: {
         display: 'none',
@@ -72,24 +77,6 @@ const Navbar = ({ currentUser }) => {
               </NavLink>
             </div>
             <div className='bottom-nav'>
-              {/* <NavLink to='/login' className='util-ml-2'>
-                <FontAwesomeIcon icon={faUserAlt} />
-              </NavLink> */}
-              {/* {currentUser ? (
-                <NavLink
-                  to='/login'
-                  className='util-ml-2'
-                  onClick={() => auth.signOut()}
-                >
-                  Log Out
-                </NavLink>
-              ) : (
-                <NavLink to='/login' className='util-ml-2'>
-                  Log In
-                </NavLink>
-              )} */}
-              {/* <FontAwesomeIcon className='util-ml-2' icon={faHeart} /> */}
-              {/* <FontAwesomeIcon className='util-ml-2' icon={faShoppingBag} /> */}
               <motion.div
                 onHoverStart={toggleHoverMenu}
                 onHoverEnd={toggleHoverMenu}
@@ -102,7 +89,6 @@ const Navbar = ({ currentUser }) => {
                   animate={isHover ? 'enter' : 'exit'}
                   variants={subMenuAnimate}
                 >
-                  {/* <div className='sub-menu-background' /> */}
                   <div className='sub-menu-container'>
                     {currentUser ? (
                       <NavLink
@@ -125,6 +111,10 @@ const Navbar = ({ currentUser }) => {
                   </div>
                 </motion.div>
               </motion.div>
+              {currentUser && (
+                <FontAwesomeIcon className='util-ml-2' icon={faHeart} />
+              )}
+              <FontAwesomeIcon className='util-ml-2' icon={faShoppingBag} />
             </div>
           </div>
         </div>
