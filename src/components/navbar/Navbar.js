@@ -91,13 +91,21 @@ const Navbar = ({ currentUser }) => {
                 >
                   <div className='sub-menu-container'>
                     {currentUser ? (
-                      <NavLink
-                        to='/login'
-                        className='sub-menu-item'
-                        onClick={() => auth.signOut()}
-                      >
-                        Logout
-                      </NavLink>
+                      <>
+                        <NavLink
+                          to={`/profile/${currentUser.uid}`}
+                          className='sub-menu-item'
+                        >
+                          {currentUser.displayName}
+                        </NavLink>
+                        <NavLink
+                          to='/login'
+                          className='sub-menu-item'
+                          onClick={() => auth.signOut()}
+                        >
+                          Logout
+                        </NavLink>
+                      </>
                     ) : (
                       <>
                         <NavLink to='/login' className='sub-menu-item'>
