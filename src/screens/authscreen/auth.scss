@@ -35,24 +35,6 @@
         display: flex;
         flex-direction: column;
 
-        .login-wrapper {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          button {
-            width: 50%;
-            display: inline-block;
-          }
-
-          a {
-            &:focus {
-              outline: none;
-            }
-          }
-        }
-
         label {
           font-size: 0.8rem;
           margin-bottom: 1rem;
@@ -90,6 +72,17 @@
             color: black;
           }
         }
+
+        .google-button {
+          background-color: dodgerblue;
+          margin-top: 2rem;
+
+          &:hover {
+            cursor: pointer;
+            color: white;
+            background-color: blue;
+          }
+        }
       }
     }
   }
@@ -99,21 +92,6 @@
   #auth-section {
     .util-container {
       padding: 0 1rem;
-
-      .form-container {
-        form {
-          .login-wrapper {
-            flex-direction: column;
-            justify-content: center;
-
-            button {
-              width: 100%;
-              display: block;
-              margin-bottom: 2rem;
-            }
-          }
-        }
-      }
     }
   }
 }

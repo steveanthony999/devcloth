@@ -82,6 +82,9 @@ const Register = () => {
             <button type='submit' className='util-mt-4'>
               Register
             </button>
+            <button className='google-button util-mt-4'>
+              Sign up with Google
+            </button>
           </form>
         </div>
       </div>

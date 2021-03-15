@@ -55,10 +55,19 @@ const Login = () => {
               onChange={handleChange}
               required
             />
-            <div className='login-wrapper util-mt-4'>
-              <button type='submit'>Log In</button>
-              <Link to='/forgotpassword'>Forgot Password?</Link>
-            </div>
+            <button type='submit' className='util-mt-4'>
+              Log In
+            </button>
+            <button className='google-button util-mt-4'>
+              Log in with Google
+            </button>
+            <Link
+              to='/forgotpassword'
+              className='util-mt-3'
+              style={{ textAlign: 'center' }}
+            >
+              Forgot Password?
+            </Link>
           </form>
         </div>
       </div>
