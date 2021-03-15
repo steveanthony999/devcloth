@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { signInWithGoogle } from '../../firebase/firebase';
 
 import './auth.scss';
-import { Link } from 'react-router-dom';
 
 const Register = () => {
   const [text, setText] = useState({
@@ -82,7 +83,10 @@ const Register = () => {
             <button type='submit' className='util-mt-4'>
               Register
             </button>
-            <button className='google-button util-mt-4'>
+            <button
+              className='google-button util-mt-4'
+              onClick={signInWithGoogle}
+            >
               Sign up with Google
             </button>
           </form>
