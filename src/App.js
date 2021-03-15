@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { auth } from './firebase/firebase';
 
 import Navbar from './components/navbar/Navbar';
 import Home from './screens/homescreen/Home';
@@ -10,9 +11,19 @@ import Login from './screens/authscreen/Login';
 import Register from './screens/authscreen/Register';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+
+    return () => unsubscribe;
+  }, []);
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar currentUser={currentUser} />
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/shop' component={Shop} />

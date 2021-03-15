@@ -7,11 +7,42 @@ import {
   faShoppingBag,
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
+import { auth } from '../../firebase/firebase';
 
 import './navbar.scss';
 import Logo from '../../images/logo.png';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
-const Navbar = () => {
+const Navbar = ({ currentUser }) => {
+  const [isHover, setIsHover] = useState(false);
+
+  const toggleHoverMenu = () => {
+    setIsHover(!isHover);
+  };
+
+  const subMenuAnimate = {
+    enter: {
+      opacity: 1,
+      rotateX: 0,
+      transition: {
+        duration: 0.5,
+      },
+      display: 'block',
+    },
+    exit: {
+      opacity: 0,
+      rotateX: -15,
+      transition: {
+        duration: 0.5,
+        delay: 0.3,
+      },
+      transitionEnd: {
+        display: 'none',
+      },
+    },
+  };
+
   return (
     <>
       <nav className='main-nav'>
@@ -41,11 +72,59 @@ const Navbar = () => {
               </NavLink>
             </div>
             <div className='bottom-nav'>
-              <NavLink to='/login' className='util-ml-2'>
+              {/* <NavLink to='/login' className='util-ml-2'>
                 <FontAwesomeIcon icon={faUserAlt} />
-              </NavLink>
-              <FontAwesomeIcon className='util-ml-2' icon={faHeart} />
-              <FontAwesomeIcon className='util-ml-2' icon={faShoppingBag} />
+              </NavLink> */}
+              {/* {currentUser ? (
+                <NavLink
+                  to='/login'
+                  className='util-ml-2'
+                  onClick={() => auth.signOut()}
+                >
+                  Log Out
+                </NavLink>
+              ) : (
+                <NavLink to='/login' className='util-ml-2'>
+                  Log In
+                </NavLink>
+              )} */}
+              {/* <FontAwesomeIcon className='util-ml-2' icon={faHeart} /> */}
+              {/* <FontAwesomeIcon className='util-ml-2' icon={faShoppingBag} /> */}
+              <motion.div
+                onHoverStart={toggleHoverMenu}
+                onHoverEnd={toggleHoverMenu}
+                className='nav-icon'
+              >
+                <FontAwesomeIcon icon={faUserAlt} />
+                <motion.div
+                  className='sub-menu'
+                  initial='exit'
+                  animate={isHover ? 'enter' : 'exit'}
+                  variants={subMenuAnimate}
+                >
+                  {/* <div className='sub-menu-background' /> */}
+                  <div className='sub-menu-container'>
+                    {currentUser ? (
+                      <NavLink
+                        to='/login'
+                        className='sub-menu-item'
+                        onClick={() => auth.signOut()}
+                      >
+                        Logout
+                      </NavLink>
+                    ) : (
+                      <>
+                        <NavLink to='/login' className='sub-menu-item'>
+                          Login
+                        </NavLink>
+                        <NavLink to='/register' className='sub-menu-item'>
+                          Register
+                        </NavLink>
+                      </>
+                    )}
+                  </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </div>

@@ -18,6 +18,41 @@
   img {
     width: 160px;
   }
+
+  .lower-nav {
+    .util-container {
+      .bottom-nav {
+        .nav-icon {
+          position: relative;
+          &:hover {
+            cursor: pointer;
+          }
+
+          .sub-menu {
+            width: 200px;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 1.9rem;
+            right: 0;
+
+            .sub-menu-container {
+              display: flex;
+              flex-direction: column;
+
+              .sub-menu-item {
+                padding: 1rem;
+                border-bottom: 1px solid #ccc;
+
+                &:last-child {
+                  border-bottom: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .mobile-nav,

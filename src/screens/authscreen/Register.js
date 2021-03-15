@@ -87,7 +87,7 @@ const Register = () => {
               className='google-button util-mt-4'
               onClick={signInWithGoogle}
             >
-              Sign up with Google
+              Sign up using Google
             </button>
           </form>
         </div>
