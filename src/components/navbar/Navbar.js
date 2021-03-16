@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSearch,
@@ -75,6 +76,9 @@ const Navbar = ({ currentUser }) => {
               <NavLink to='/' className='util-mr-2'>
                 About Us
               </NavLink>
+              <NavLink to='/' className='util-mr-2'>
+                NFT
+              </NavLink>
             </div>
             <div className='bottom-nav'>
               <motion.div
@@ -137,4 +141,8 @@ const Navbar = ({ currentUser }) => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Navbar);

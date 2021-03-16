@@ -65,6 +65,7 @@ const Login = () => {
               Log In
             </button>
             <button
+              type='button'
               className='google-button util-mt-4'
               onClick={signInWithGoogle}
             >
