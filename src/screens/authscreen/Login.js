@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { signInWithGoogle } from '../../firebase/firebase';
+import { auth, signInWithGoogle } from '../../firebase/firebase';
 
 import './auth.scss';
 
@@ -10,16 +10,21 @@ const Login = () => {
     password: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setText({ email: '', password: '' });
+    try {
+      await auth.signInWithEmailAndPassword(text.email, text.password);
+      setText({ email: '', password: '' });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleChange = (e) => {
     const { value, name } = e.target;
 
-    setText({ [name]: value });
+    setText({ ...text, [name]: value });
   };
 
   return (
