@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { signInWithGoogle } from '../../firebase/firebase';
+import {
+  createUserProfileDocument,
+  signInWithGoogle,
+  auth,
+} from '../../firebase/firebase';
 
 import './auth.scss';
 
@@ -12,8 +16,26 @@ const Register = () => {
     confirmPassword: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (text.password !== text.confirmPassword) {
+      console.log('passwords do not match');
+      return;
+    }
+
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        text.email,
+        text.password
+      );
+
+      await createUserProfileDocument(user, {
+        displayName: text.firstName,
+      });
+    } catch (err) {
+      console.log(err);
+    }
 
     setText({ firstName: '', email: '', password: '', confirmPassword: '' });
   };
@@ -21,7 +43,7 @@ const Register = () => {
   const handleChange = (e) => {
     const { value, name } = e.target;
 
-    setText({ [name]: value });
+    setText({ ...text, [name]: value });
   };
 
   return (
@@ -41,7 +63,7 @@ const Register = () => {
             </label>
             <input
               type='text'
-              name='first-name'
+              name='firstName'
               id='first-name'
               value={text.firstName}
               onChange={handleChange}
@@ -74,7 +96,7 @@ const Register = () => {
             </label>
             <input
               type='password'
-              name='confirm-password'
+              name='confirmPassword'
               id='confirm-password'
               value={text.confirmPassword}
               onChange={handleChange}
