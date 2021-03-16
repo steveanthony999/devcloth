@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { auth, createUserProfileDocument } from './firebase/firebase';
 
@@ -12,7 +12,7 @@ import Login from './screens/authscreen/Login';
 import Register from './screens/authscreen/Register';
 import { setCurrentUser } from './redux/user/userActions';
 
-const App = ({ setCurrentUser }) => {
+const App = ({ currentUser, setCurrentUser }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
@@ -38,17 +38,27 @@ const App = ({ setCurrentUser }) => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/shop' component={Shop} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
+        <Route
+          exact
+          path='/login'
+          render={() => (currentUser ? <Redirect to='/' /> : <Login />)}
+        />
+        <Route
+          exact
+          path='/register'
+          render={() => (currentUser ? <Redirect to='/' /> : <Register />)}
+        />
       </Switch>
     </BrowserRouter>
   );
 };
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
-
-// passed in null as the first arg because we dont need state to props from our reducer
+export default connect(mapStateToProps, mapDispatchToProps)(App);
