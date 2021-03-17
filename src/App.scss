@@ -28,6 +28,27 @@ a {
   }
 }
 
+.btn {
+  border: none;
+  padding: 1rem 0;
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn-light {
+  background-color: white;
+  opacity: 0.75;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    opacity: 1;
+  }
+}
+
 .util-extra-small-heading {
   font-size: 0.8rem;
   color: var(--color-grey);

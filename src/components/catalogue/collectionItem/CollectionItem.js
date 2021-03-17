@@ -13,6 +13,7 @@ const CollectionItem = ({ id, name, price, imageUrl }) => {
         <span className='util-small-heading'>{name}</span>
         <span className='util-small-heading'>${price}</span>
       </div>
+      <button className='btn btn-light'>Add to Cart</button>
     </div>
   );
 };

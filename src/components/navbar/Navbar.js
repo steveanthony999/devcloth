@@ -140,7 +140,7 @@ const Navbar = ({ currentUser, toggleCartHidden, hidden }) => {
                   animate={hidden ? 'exit' : 'enter'}
                   variants={subMenuAnimate}
                 >
-                  <CartDropDown />
+                  {hidden ? null : <CartDropDown />}
                 </motion.div>
               </div>
             </div>
