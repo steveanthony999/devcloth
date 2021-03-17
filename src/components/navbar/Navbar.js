@@ -11,13 +11,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
+import CartDropDown from '../cart/CartDropDown';
+
 import { auth } from '../../firebase/firebase';
+import { toggleCartHidden } from '../../redux/cart/cartActions';
 
 import Logo from '../../images/logo.png';
 
 import './navbar.scss';
 
-const Navbar = ({ currentUser }) => {
+const Navbar = ({ currentUser, toggleCartHidden, hidden }) => {
   const [isHover, setIsHover] = useState(false);
 
   const toggleHoverMenu = () => {
@@ -126,7 +129,14 @@ const Navbar = ({ currentUser }) => {
               {currentUser && (
                 <FontAwesomeIcon className='util-ml-2' icon={faHeart} />
               )}
-              <FontAwesomeIcon className='util-ml-2' icon={faShoppingBag} />
+              <div
+                className='shopping-bag util-ml-2'
+                onClick={toggleCartHidden}
+              >
+                <FontAwesomeIcon icon={faShoppingBag} />
+                <span className='bag-item-quantity'>9+</span>
+                {hidden ? null : <CartDropDown />}
+              </div>
             </div>
           </div>
         </div>
@@ -141,8 +151,13 @@ const Navbar = ({ currentUser }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser,
+  hidden,
 });
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = (dispatch) => ({
+  toggleCartHidden: () => dispatch(toggleCartHidden()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
