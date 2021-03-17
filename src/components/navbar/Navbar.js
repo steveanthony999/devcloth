@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
-import CartDropDown from '../cart/CartDropDown';
+import CartDropDown from './cart/CartDropDown';
 
 import { auth } from '../../firebase/firebase';
 import { toggleCartHidden } from '../../redux/cart/cartActions';
@@ -30,21 +30,17 @@ const Navbar = ({ currentUser, toggleCartHidden, hidden }) => {
   const subMenuAnimate = {
     enter: {
       opacity: 1,
-      originY: 0,
-      scaleY: 1,
       transition: {
-        duration: 0.4,
+        duration: 0.2,
         ease: 'easeOut',
       },
       display: 'block',
     },
     exit: {
       opacity: 0,
-      originY: 0,
-      scaleY: 0,
       transition: {
         delay: 0.3,
-        duration: 0.4,
+        duration: 0.2,
       },
       transitionEnd: {
         display: 'none',
@@ -84,11 +80,10 @@ const Navbar = ({ currentUser, toggleCartHidden, hidden }) => {
               </NavLink>
             </div>
             <div className='bottom-nav'>
-              <motion.div
-                onHoverStart={toggleHoverMenu}
-                onHoverEnd={toggleHoverMenu}
-                className='nav-icon'
-              >
+              {/* ====================== USER ======================= */}
+              {/* ====================== USER ======================= */}
+              {/* ====================== USER ======================= */}
+              <div onClick={toggleHoverMenu} className='nav-icon'>
                 <FontAwesomeIcon icon={faUserAlt} />
                 <motion.div
                   className='sub-menu'
@@ -125,17 +120,28 @@ const Navbar = ({ currentUser, toggleCartHidden, hidden }) => {
                     )}
                   </div>
                 </motion.div>
-              </motion.div>
+              </div>
+              {/* ==================== FAVORITES ==================== */}
+              {/* ==================== FAVORITES ==================== */}
+              {/* ==================== FAVORITES ==================== */}
               {currentUser && (
                 <FontAwesomeIcon className='util-ml-2' icon={faHeart} />
               )}
+              {/* ================== SHOPPING BAG =================== */}
+              {/* ================== SHOPPING BAG =================== */}
+              {/* ================== SHOPPING BAG =================== */}
               <div
                 className='shopping-bag util-ml-2'
                 onClick={toggleCartHidden}
               >
                 <FontAwesomeIcon icon={faShoppingBag} />
                 <span className='bag-item-quantity'>9+</span>
-                {hidden ? null : <CartDropDown />}
+                <motion.div
+                  animate={hidden ? 'exit' : 'enter'}
+                  variants={subMenuAnimate}
+                >
+                  <CartDropDown />
+                </motion.div>
               </div>
             </div>
           </div>
