@@ -1,6 +1,12 @@
+import { connect } from 'react-redux';
+
+import { addItem } from '../../../redux/cart/cartActions';
+
 import './collectionItem.scss';
 
-const CollectionItem = ({ id, name, price, imageUrl }) => {
+const CollectionItem = ({ item, addItem }) => {
+  const { name, price, imageUrl } = item;
+
   return (
     <div className='collection-item'>
       <div
@@ -13,9 +19,15 @@ const CollectionItem = ({ id, name, price, imageUrl }) => {
         <span className='util-small-heading'>{name}</span>
         <span className='util-small-heading'>${price}</span>
       </div>
-      <button className='btn btn-light'>Add to Cart</button>
+      <button className='btn btn-light' onClick={() => addItem(item)}>
+        Add to Cart
+      </button>
     </div>
   );
 };
 
-export default CollectionItem;
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(CollectionItem);
