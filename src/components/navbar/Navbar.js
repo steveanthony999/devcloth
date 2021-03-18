@@ -20,7 +20,7 @@ import Logo from '../../images/logo.png';
 
 import './navbar.scss';
 
-const Navbar = ({ currentUser, toggleCartHidden, hidden }) => {
+const Navbar = ({ currentUser, toggleCartHidden, hidden, itemCount }) => {
   const [isHover, setIsHover] = useState(false);
 
   const toggleHoverMenu = () => {
@@ -135,7 +135,7 @@ const Navbar = ({ currentUser, toggleCartHidden, hidden }) => {
                 onClick={toggleCartHidden}
               >
                 <FontAwesomeIcon icon={faShoppingBag} />
-                <span className='bag-item-quantity'>9+</span>
+                <span className='bag-item-quantity'>{itemCount}</span>
                 <motion.div
                   animate={hidden ? 'exit' : 'enter'}
                   variants={subMenuAnimate}
@@ -157,9 +157,16 @@ const Navbar = ({ currentUser, toggleCartHidden, hidden }) => {
   );
 };
 
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+const mapStateToProps = ({
+  user: { currentUser },
+  cart: { hidden, cartItems },
+}) => ({
   currentUser,
   hidden,
+  itemCount: cartItems.reduce(
+    (accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity,
+    0
+  ),
 });
 
 const mapDispatchToProps = (dispatch) => ({

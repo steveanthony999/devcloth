@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import CartItem from '../../cartItem/CartItem';
+import CartItem from './cartItem/CartItem';
 import './cartDropDown.scss';
 
 const CartDropDown = ({ cartItems }) => {
@@ -11,7 +11,7 @@ const CartDropDown = ({ cartItems }) => {
           <CartItem key={cartItem.id} item={cartItem} />
         ))}{' '}
       </div>
-      <button>Checkout</button>
+      <button className='btn btn-dark'>Checkout</button>
     </div>
   );
 };

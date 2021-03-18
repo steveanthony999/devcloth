@@ -49,6 +49,17 @@ a {
   }
 }
 
+.btn-dark {
+  background-color: black;
+  color: white;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+}
+
 .util-extra-small-heading {
   font-size: 0.8rem;
   color: var(--color-grey);
