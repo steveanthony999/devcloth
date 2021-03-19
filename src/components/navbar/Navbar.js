@@ -6,21 +6,20 @@ import {
   faSearch,
   faUserAlt,
   faHeart,
-  faShoppingBag,
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
+import CartIcon from './cart/cartIcon/CartIcon';
 import CartDropDown from './cart/CartDropDown';
 
 import { auth } from '../../firebase/firebase';
-import { toggleCartHidden } from '../../redux/cart/cartActions';
 
 import Logo from '../../images/logo.png';
 
 import './navbar.scss';
 
-const Navbar = ({ currentUser, toggleCartHidden, hidden, itemCount }) => {
+const Navbar = ({ currentUser, hidden }) => {
   const [isHover, setIsHover] = useState(false);
 
   const toggleHoverMenu = () => {
@@ -130,19 +129,8 @@ const Navbar = ({ currentUser, toggleCartHidden, hidden, itemCount }) => {
               {/* ================== SHOPPING BAG =================== */}
               {/* ================== SHOPPING BAG =================== */}
               {/* ================== SHOPPING BAG =================== */}
-              <div
-                className='shopping-bag util-ml-2'
-                onClick={toggleCartHidden}
-              >
-                <FontAwesomeIcon icon={faShoppingBag} />
-                <span className='bag-item-quantity'>{itemCount}</span>
-                <motion.div
-                  animate={hidden ? 'exit' : 'enter'}
-                  variants={subMenuAnimate}
-                >
-                  {hidden ? null : <CartDropDown />}
-                </motion.div>
-              </div>
+              <CartIcon />
+              {hidden ? null : <CartDropDown />}
             </div>
           </div>
         </div>
@@ -157,20 +145,9 @@ const Navbar = ({ currentUser, toggleCartHidden, hidden, itemCount }) => {
   );
 };
 
-const mapStateToProps = ({
-  user: { currentUser },
-  cart: { hidden, cartItems },
-}) => ({
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
   currentUser,
   hidden,
-  itemCount: cartItems.reduce(
-    (accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity,
-    0
-  ),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  toggleCartHidden: () => dispatch(toggleCartHidden()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps)(Navbar);

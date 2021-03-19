@@ -1,0 +1,22 @@
+.shopping-bag {
+  position: relative;
+
+  .bag-item-quantity {
+    width: 1rem;
+    height: 1rem;
+    background: red;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -22,10 +22,6 @@ a {
     color: white;
     border-color: darkorange;
   }
-
-  &:focus {
-    outline: none;
-  }
 }
 
 .btn {
@@ -35,6 +31,10 @@ a {
 
   &:hover {
     cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
