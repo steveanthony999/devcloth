@@ -9,11 +9,14 @@ import {
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
+import { createStructuredSelector } from 'reselect';
 
 import CartIcon from './cart/cartIcon/CartIcon';
 import CartDropDown from './cart/CartDropDown';
 
 import { auth } from '../../firebase/firebase';
+import { selectCartHidden } from '../../redux/cart/cartSelectors';
+import { selectCurrentUser } from '../../redux/user/userSelectors';
 
 import Logo from '../../images/logo.png';
 
@@ -145,9 +148,9 @@ const Navbar = ({ currentUser, hidden }) => {
   );
 };
 
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-  currentUser,
-  hidden,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden,
 });
 
 export default connect(mapStateToProps)(Navbar);
