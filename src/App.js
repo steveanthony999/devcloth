@@ -7,6 +7,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase';
 import Navbar from './components/navbar/Navbar';
 import Home from './screens/homescreen/Home';
 import Shop from './screens/shopscreen/Shop';
+import Checkout from './screens/checkoutscreen/Checkout';
 
 import './App.scss';
 import Login from './screens/authscreen/Login';
@@ -40,6 +41,7 @@ const App = ({ currentUser, setCurrentUser }) => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/shop' component={Shop} />
+        <Route exact path='/checkout' component={Checkout} />
         <Route
           exact
           path='/login'
