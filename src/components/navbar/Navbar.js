@@ -8,7 +8,7 @@ import {
   faHeart,
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { createStructuredSelector } from 'reselect';
 
 import CartIcon from './cart/cartIcon/CartIcon';
@@ -29,24 +29,18 @@ const Navbar = ({ currentUser, hidden }) => {
     setIsHover(!isHover);
   };
 
-  const subMenuAnimate = {
+  const variants = {
+    initial: {
+      scaleY: 0,
+      originY: 0,
+    },
     enter: {
-      opacity: 1,
-      transition: {
-        duration: 0.2,
-        ease: 'easeOut',
-      },
+      scaleY: 1,
       display: 'block',
     },
     exit: {
-      opacity: 0,
-      transition: {
-        delay: 0.3,
-        duration: 0.2,
-      },
-      transitionEnd: {
-        display: 'none',
-      },
+      scaleY: 0,
+      display: 'none',
     },
   };
 
@@ -89,9 +83,9 @@ const Navbar = ({ currentUser, hidden }) => {
                 <FontAwesomeIcon icon={faUserAlt} />
                 <motion.div
                   className='sub-menu'
-                  initial='exit'
+                  initial='initial'
                   animate={isHover ? 'enter' : 'exit'}
-                  variants={subMenuAnimate}
+                  variants={variants}
                 >
                   <div className='sub-menu-container'>
                     {currentUser ? (
@@ -133,7 +127,11 @@ const Navbar = ({ currentUser, hidden }) => {
               {/* ================== SHOPPING BAG =================== */}
               {/* ================== SHOPPING BAG =================== */}
               <CartIcon />
-              {hidden ? null : <CartDropDown />}
+              {hidden ? null : (
+                <AnimatePresence>
+                  <CartDropDown />
+                </AnimatePresence>
+              )}
             </div>
           </div>
         </div>

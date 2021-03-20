@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -8,15 +9,35 @@ import { selectCartItems } from '../../../redux/cart/cartSelectors';
 import './cartDropDown.scss';
 
 const CartDropDown = ({ cartItems }) => {
+  const variants = {
+    initial: {
+      scaleY: 0,
+      originY: 0,
+    },
+    enter: {
+      scaleY: 1,
+    },
+    exit: {
+      scaleY: 0,
+    },
+  };
+
   return (
-    <div className='cart-dropdown'>
+    <motion.div
+      className='cart-dropdown'
+      key='dropdown'
+      variants={variants}
+      initial='initial'
+      animate='enter'
+      exit='exit'
+    >
       <div className='cart-items'>
         {cartItems.map((cartItem) => (
           <CartItem key={cartItem.id} item={cartItem} />
         ))}{' '}
       </div>
       <button className='btn btn-dark'>Checkout</button>
-    </div>
+    </motion.div>
   );
 };
 
