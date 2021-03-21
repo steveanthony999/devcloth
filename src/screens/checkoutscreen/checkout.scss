@@ -1,0 +1,21 @@
+#checkout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .checkout-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .checkout-details {
+      width: 100%;
+
+      .checkout-header {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

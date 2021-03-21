@@ -1,11 +1,67 @@
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import {
+  selectCartItems,
+  selectCartTotal,
+} from '../../redux/cart/cartSelectors';
+
 import './checkout.scss';
 
-const Checkout = () => {
+const Checkout = ({ cartItems, total }) => {
   return (
-    <div>
-      <div>Checkout Page</div>
-    </div>
+    <section id='checkout'>
+      <div className='checkout-container util-container'>
+        <h1 className='util-medium-heading'>Shopping Cart</h1>
+        <div className='checkout-details util-mt-4'>
+          <h2 className='util-small-heading'>Order Summary</h2>
+          <div className='checkout-header util-mt-3'>
+            <div className='header-block'>
+              <span className='util-extra-small-heading'>DETAILS</span>
+            </div>
+            <div className='header-block'>
+              <span className='util-extra-small-heading'>PRICE</span>
+            </div>
+            <div className='header-block'>
+              <span className='util-extra-small-heading'>QUANTITY</span>
+            </div>
+            <div className='header-block'>
+              <span className='util-extra-small-heading'>AMOUNT</span>
+            </div>
+            <div className='header-block'>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        {cartItems.map((cartItem) => cartItem.name)}
+
+        <div className='total'>
+          <span>TOTAL: ${total}</span>
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default Checkout;
+const mapStateToProps = createStructuredSelector({
+  cartItems: selectCartItems,
+  total: selectCartTotal,
+});
+
+export default connect(mapStateToProps)(Checkout);
+
+// Product image, product description, price, quantity, remove
+
+// clear cart button
+
+// add note to order
+
+// shipping estimates
+
+// grand total - subtotal, shipping, total
+
+// promo code
+
+// free shipping progress bar
+
+// saved for later
