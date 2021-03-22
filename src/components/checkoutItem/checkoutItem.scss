@@ -35,5 +35,11 @@
   .remove-button {
     width: 5%;
     align-self: center;
+    transition: 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      color: red;
+    }
   }
 }
