@@ -6,10 +6,11 @@ import { withRouter } from 'react-router-dom';
 import CartItem from './cartItem/CartItem';
 
 import { selectCartItems } from '../../../redux/cart/cartSelectors';
+import { toggleCartHidden } from '../../../redux/cart/cartActions';
 
 import './cartDropDown.scss';
 
-const CartDropDown = ({ cartItems, history }) => {
+const CartDropDown = ({ cartItems, history, dispatch }) => {
   const variants = {
     initial: {
       scaleY: 0,
@@ -30,8 +31,7 @@ const CartDropDown = ({ cartItems, history }) => {
       variants={variants}
       initial='initial'
       animate='enter'
-      exit='exit'
-    >
+      exit='exit'>
       <div className='cart-items'>
         {cartItems.length ? (
           cartItems.map((cartItem) => (
@@ -45,8 +45,10 @@ const CartDropDown = ({ cartItems, history }) => {
       </div>
       <button
         className='btn btn-dark'
-        onClick={() => history.push('/checkout')}
-      >
+        onClick={() => {
+          history.push('/checkout');
+          dispatch(toggleCartHidden());
+        }}>
         Checkout
       </button>
     </motion.div>
