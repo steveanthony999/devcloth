@@ -15,6 +15,18 @@
       .checkout-header {
         display: flex;
         justify-content: space-between;
+
+        .header-block {
+          width: 20%;
+
+          &:first-child {
+            width: 35%;
+          }
+
+          &:last-child {
+            width: 5%;
+          }
+        }
       }
     }
   }

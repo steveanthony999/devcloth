@@ -1,0 +1,39 @@
+.checkout-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .details-container {
+    width: 35%;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 100px;
+    }
+
+    .name {
+      margin-left: 2rem;
+    }
+  }
+
+  .price {
+    width: 20%;
+    align-self: center;
+  }
+
+  .quantity {
+    width: 20%;
+    align-self: center;
+  }
+
+  .amount {
+    width: 20%;
+    align-self: center;
+  }
+
+  .remove-button {
+    width: 5%;
+    align-self: center;
+  }
+}

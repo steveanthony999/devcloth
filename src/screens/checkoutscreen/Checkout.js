@@ -6,6 +6,8 @@ import {
   selectCartTotal,
 } from '../../redux/cart/cartSelectors';
 
+import CheckoutItem from '../../components/checkoutItem/CheckoutItem';
+
 import './checkout.scss';
 
 const Checkout = ({ cartItems, total }) => {
@@ -15,12 +17,12 @@ const Checkout = ({ cartItems, total }) => {
         <h1 className='util-medium-heading'>Shopping Cart</h1>
         <div className='checkout-details util-mt-4'>
           <h2 className='util-small-heading'>Order Summary</h2>
-          <div className='checkout-header util-mt-3'>
+          <div className='checkout-header util-my-3 util-pb-3 util-border-bottom'>
             <div className='header-block'>
               <span className='util-extra-small-heading'>DETAILS</span>
             </div>
             <div className='header-block'>
-              <span className='util-extra-small-heading'>PRICE</span>
+              <span className='util-extra-small-heading'>UNIT PRICE</span>
             </div>
             <div className='header-block'>
               <span className='util-extra-small-heading'>QUANTITY</span>
@@ -33,10 +35,12 @@ const Checkout = ({ cartItems, total }) => {
             </div>
           </div>
         </div>
-        {cartItems.map((cartItem) => cartItem.name)}
+        {cartItems.map((cartItem) => (
+          <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+        ))}
 
         <div className='total'>
-          <span>TOTAL: ${total}</span>
+          <span>TOTAL: ${total.toFixed(2)}</span>
         </div>
       </div>
     </section>
