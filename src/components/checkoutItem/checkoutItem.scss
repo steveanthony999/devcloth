@@ -24,7 +24,35 @@
 
   .quantity {
     width: 20%;
-    align-self: center;
+    display: flex;
+    align-items: center;
+
+    .q-box {
+      width: 2rem;
+      height: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-left: none;
+      border-right: none;
+    }
+
+    .arrow {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+      transition: 0.2s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+      }
+    }
   }
 
   .amount {
