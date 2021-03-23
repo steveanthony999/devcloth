@@ -65,7 +65,7 @@ const SHOP_DATA = [
   {
     id: 3,
     title: 'Hoodies & Sweatshirts',
-    routeName: 'sweatshirts',
+    routeName: 'hoodies',
     items: [
       {
         id: 7,

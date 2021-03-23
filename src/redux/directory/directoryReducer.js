@@ -21,7 +21,7 @@ const INITIAL_STATE = {
       title: 'Hoodies',
       imageUrl: imageHoodies,
       id: 3,
-      linkUrl: 'shop/sweatshirts',
+      linkUrl: 'shop/hoodies',
     },
     {
       title: 'Accessories',
