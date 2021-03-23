@@ -102,7 +102,9 @@ export const HeroSlider = ({ history, match }) => {
               <button
                 className='util-button-light'
                 onClick={() =>
-                  history.push(`${match.url}${sliderData[imageIndex].linkUrl}`)
+                  history.push(
+                    `shop${match.url}${sliderData[imageIndex].linkUrl}`
+                  )
                 }
               >
                 Shop Now

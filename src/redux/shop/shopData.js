@@ -11,8 +11,8 @@ import js_shorts_1 from '../../images/js_shorts_1.jpg';
 import js_tee_1 from '../../images/js_tee_1.jpg';
 import js_toddler_tee_1 from '../../images/js_toddler_tee_1.jpg';
 
-const SHOP_DATA = [
-  {
+const SHOP_DATA = {
+  activewear: {
     id: 1,
     title: 'Active Wear',
     routeName: 'activewear',
@@ -37,7 +37,7 @@ const SHOP_DATA = [
       },
     ],
   },
-  {
+  tees: {
     id: 2,
     title: 'Tees',
     routeName: 'tees',
@@ -62,7 +62,7 @@ const SHOP_DATA = [
       },
     ],
   },
-  {
+  hoodies: {
     id: 3,
     title: 'Hoodies & Sweatshirts',
     routeName: 'hoodies',
@@ -87,7 +87,7 @@ const SHOP_DATA = [
       },
     ],
   },
-  {
+  accessories: {
     id: 4,
     title: 'Accessories',
     routeName: 'accessories',
@@ -112,31 +112,81 @@ const SHOP_DATA = [
       },
     ],
   },
-  //   {
-  //     id: 5,
-  //     title: 'Collections',
-  //     routeName: 'collections',
-  //     items: [
-  //       {
-  //         id: 13,
-  //         name: 'JS Streetwear Collection',
-  //         imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
-  //         price: '',
-  //       },
-  //       {
-  //         id: 14,
-  //         name: 'DevActive Collection',
-  //         imageUrl: 'https://i.ibb.co/qMQ75QZ/floral-shirt.png',
-  //         price: '',
-  //       },
-  //       {
-  //         id: 15,
-  //         name: 'X Collection',
-  //         imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
-  //         price: '',
-  //       },
-  //     ],
-  //   },
-];
+  jsstreetwear: {
+    id: 5,
+    title: 'JS Streetwear',
+    routeName: 'jsstreetwear',
+    items: [
+      {
+        id: 13,
+        name: 'Beanie',
+        imageUrl: js_beanie_1,
+        price: 17.95,
+      },
+      {
+        id: 14,
+        name: 'Hat',
+        imageUrl: javascript_cap_1,
+        price: 13.95,
+      },
+      {
+        id: 15,
+        name: 'Backpack',
+        imageUrl: js_backpack_1,
+        price: 34.95,
+      },
+    ],
+  },
+  devactive: {
+    id: 6,
+    title: 'DevActive',
+    routeName: 'devactive',
+    items: [
+      {
+        id: 16,
+        name: 'Beanie',
+        imageUrl: js_beanie_1,
+        price: 17.95,
+      },
+      {
+        id: 17,
+        name: 'Hat',
+        imageUrl: javascript_cap_1,
+        price: 13.95,
+      },
+      {
+        id: 18,
+        name: 'Backpack',
+        imageUrl: js_backpack_1,
+        price: 34.95,
+      },
+    ],
+  },
+  xcollection: {
+    id: 7,
+    title: 'X Collection',
+    routeName: 'xcollection',
+    items: [
+      {
+        id: 19,
+        name: 'Beanie',
+        imageUrl: js_beanie_1,
+        price: 17.95,
+      },
+      {
+        id: 20,
+        name: 'Hat',
+        imageUrl: javascript_cap_1,
+        price: 13.95,
+      },
+      {
+        id: 21,
+        name: 'Backpack',
+        imageUrl: js_backpack_1,
+        price: 34.95,
+      },
+    ],
+  },
+};
 
 export default SHOP_DATA;
