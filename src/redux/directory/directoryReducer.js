@@ -1,31 +1,31 @@
-import js_leggings_1 from '../../images/js_leggings_1.jpg';
-import js_tee_1 from '../../images/js_tee_1.jpg';
-import bios_hoodie_1 from '../../images/bios_hoodie_1.jpg';
-import js_beanie_1 from '../../images/js_beanie_1.jpg';
+import imageActiveWear from '../../images/activewear.jpeg';
+import imageTees from '../../images/tees.jpeg';
+import imageHoodies from '../../images/hoodies.jpeg';
+import imageAccessories from '../../images/accessories.jpeg';
 
 const INITIAL_STATE = {
   sections: [
     {
       title: 'Active Wear',
-      imageUrl: js_leggings_1,
+      imageUrl: imageActiveWear,
       id: 1,
       linkUrl: 'shop/activewear',
     },
     {
       title: 'Tees',
-      imageUrl: js_tee_1,
+      imageUrl: imageTees,
       id: 2,
       linkUrl: 'shop/tees',
     },
     {
-      title: 'Hoodies & Sweatshirts',
-      imageUrl: bios_hoodie_1,
+      title: 'Hoodies',
+      imageUrl: imageHoodies,
       id: 3,
       linkUrl: 'shop/sweatshirts',
     },
     {
       title: 'Accessories',
-      imageUrl: js_beanie_1,
+      imageUrl: imageAccessories,
       size: 'large',
       id: 4,
       linkUrl: 'shop/accessories',

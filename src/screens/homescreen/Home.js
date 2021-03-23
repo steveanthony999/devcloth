@@ -6,9 +6,7 @@ import './home.scss';
 const Home = () => {
   return (
     <div className='homepage'>
-      {/* SECTION: HERO SLIDER */}
       <HeroSlider />
-      {/* SECTION: MAIN SECTION */}
       <div className='section util-container'>
         <MainSection />
         {/* SECTON: RECENT PRODUCTS */}
