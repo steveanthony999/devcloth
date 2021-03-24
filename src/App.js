@@ -2,7 +2,11 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { auth, createUserProfileDocument } from './firebase/firebase';
+import {
+  auth,
+  createUserProfileDocument,
+  // addCollectionAndDocuments,
+} from './firebase/firebase';
 
 import Navbar from './components/navbar/Navbar';
 import Home from './screens/homescreen/Home';
@@ -14,8 +18,9 @@ import Login from './screens/authscreen/Login';
 import Register from './screens/authscreen/Register';
 import { setCurrentUser } from './redux/user/userActions';
 import { selectCurrentUser } from './redux/user/userSelectors';
+// import { selectCollectionsForPreview } from './redux/shop/shopSelectors';
 
-const App = ({ currentUser, setCurrentUser }) => {
+const App = ({ currentUser, setCurrentUser /*collectionsArray*/ }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
@@ -27,13 +32,17 @@ const App = ({ currentUser, setCurrentUser }) => {
             ...snapshot.data(),
           });
         });
-      } else {
-        setCurrentUser(userAuth);
       }
+
+      setCurrentUser(userAuth);
+      // addCollectionAndDocuments(
+      //   'collections',
+      //   collectionsArray.map(({ title, items }) => ({ title, items }))
+      // );
     });
 
     return () => unsubscribe;
-  }, [setCurrentUser]);
+  }, [setCurrentUser /*collectionsArray*/]);
 
   return (
     <BrowserRouter>
@@ -59,6 +68,7 @@ const App = ({ currentUser, setCurrentUser }) => {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  // collectionsArray: selectCollectionsForPreview,
 });
 
 const mapDispatchToProps = (dispatch) => ({
