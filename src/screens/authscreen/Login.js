@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { auth, signInWithGoogle } from '../../firebase/firebase';
+import { googleSignInStart } from '../../redux/user/userActions';
 
 import './auth.scss';
 
-const Login = () => {
+const Login = ({ googleSignInStart }) => {
   const [text, setText] = useState({
     email: '',
     password: '',
@@ -67,7 +69,7 @@ const Login = () => {
             <button
               type='button'
               className='google-button util-mt-4'
-              onClick={signInWithGoogle}
+              onClick={googleSignInStart}
             >
               Log in with Google
             </button>
@@ -85,4 +87,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  googleSignInStart: () => dispatch(googleSignInStart()),
+});
+
+export default connect(null, mapDispatchToProps)(Login);
