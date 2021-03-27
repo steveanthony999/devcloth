@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { auth, signInWithGoogle } from '../../firebase/firebase';
-import { googleSignInStart } from '../../redux/user/userActions';
+import {
+  googleSignInStart,
+  emailSignInStart,
+} from '../../redux/user/userActions';
 
 import './auth.scss';
 
-const Login = ({ googleSignInStart }) => {
+const Login = ({ googleSignInStart, emailSignInStart }) => {
   const [text, setText] = useState({
     email: '',
     password: '',
@@ -15,12 +17,7 @@ const Login = ({ googleSignInStart }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      await auth.signInWithEmailAndPassword(text.email, text.password);
-      setText({ email: '', password: '' });
-    } catch (err) {
-      console.log(err);
-    }
+    emailSignInStart(text.email, text.password);
   };
 
   const handleChange = (e) => {
@@ -89,6 +86,8 @@ const Login = ({ googleSignInStart }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   googleSignInStart: () => dispatch(googleSignInStart()),
+  emailSignInStart: (email, password) =>
+    dispatch(emailSignInStart({ email, password })),
 });
 
 export default connect(null, mapDispatchToProps)(Login);
